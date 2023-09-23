@@ -1,0 +1,38 @@
+<div *ngIf="loading">
+    <mat-progress-bar class="example-margin" color="primary" mode="indeterminate">
+    </mat-progress-bar>
+</div>
+
+
+<div class="products">
+    <div class="product" *ngFor="let product of allProducts">
+    <mat-card class="mat-elevation-z4">
+        <img mat-card-image [src]="product.img_url" loading="lazy" />
+        <mat-card-content>
+            <h3>
+                {{ product.name | titlecase }}
+            </h3>
+            <h4>
+                {{ product.discount_price | currency: "INR" }}
+                <span class="price-tag">{{ product.price }}</span>
+                <span class="discount-tag">{{ product.discount_percentage }}% off</span>
+            </h4>
+
+
+            <mat-chip-listbox aria-label="Availabilty">
+                <mat-chip-option *ngFor="let item of product.availability" selected>{{item}}</mat-chip-option>
+            </mat-chip-listbox>
+        </mat-card-content>
+        <mat-card-actions  fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-chip-listbox aria-label="Availabilty">
+                <mat-chip-option [color]="product.type == 'VEG' ? 'primary' : 'warn'" selected>{{product.type}}</mat-chip-option>
+            </mat-chip-listbox>
+            <span class="example-spacer"></span>
+            <button mat-raised-button color="accent" (click)="addToCart(product)">
+                <mat-icon>add_shopping_cart</mat-icon>
+                Add to cart
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+</div>

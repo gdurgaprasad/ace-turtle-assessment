@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <span class="cursor-pointer" routerLink="/">ACESHOP</span>
+    <span class="example-spacer"></span>
+    <button matTooltip="Home" routerLink="/" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon  matBadgeColor="accent" aria-hidden="false">home</mat-icon>
+      </button>
+    <button matTooltip="cart" routerLink="/cart" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon [matBadge]="currentCartCount" matBadgeColor="accent" aria-hidden="false">shopping_cart</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>

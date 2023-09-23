@@ -1,0 +1,74 @@
+<div class="content">
+  <mat-card class="mb-0.25 mat-elevation-z7">
+
+    <mat-card-header class="bg-accent">
+      <div fxLayout="row">
+        <mat-card-title class="final-price-tag">CART TOTAL - {{ cartTotalValue | currency: "INR" }}</mat-card-title>
+      </div>
+      <span class="example-spacer"></span>
+      <div fxLayout="row">
+        <mat-card-title>
+          <button *ngIf="cartProducts.length" mat-flat-button color="accent" (click)="addAddress()">
+            Add Address & Place Order
+          </button>
+        </mat-card-title>
+      </div>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+  </mat-card>
+  <!-- <mat-list *ngIf="cartProducts.length">
+        <mat-list-item *ngFor="let product of cartProducts; let i = index">
+          <img mat-card-avatar [src]="product.img_url" />
+          <h3 matListItemLine>{{ product.name }}</h3>
+          <p matListItemLine>
+            <span class="final-price-tag"> FINAL PRICE = </span>
+            <span class="original-price-tag">
+              ORIGINAL PRICE :
+              {{ product.price | currency: "INR" }} -
+            </span>
+            <span class="discount-price-tag">
+              DISCOUNT({{ product.discount_percentage }}% off) :
+              {{ product.price - product.discount_price | currency: "INR" }}
+            </span>
+            <span class="final-price-tag">
+              = {{ product.discount_price | currency: "INR" }}
+            </span>
+          </p>
+          <button mat-icon-button (click)="deleteProductFormCart(product)">
+            <mat-icon color="warn">delete_forever</mat-icon>
+          </button>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list> -->
+  <mat-card class="mb-0.25" *ngFor="let product of cartProducts; let i = index">
+    <mat-card-header>
+      <img mat-card-avatar [src]="product.img_url" />
+
+      <mat-card-title>
+        {{ product.name }}
+      </mat-card-title>
+      <mat-card-subtitle> <span class="final-price-tag"> FINAL PRICE = </span>
+        <span class="original-price-tag">
+          ORIGINAL PRICE :
+          {{ product.price | currency: "INR" }} -
+        </span>
+        <span class="discount-price-tag">
+          DISCOUNT({{ product.discount_percentage }}% off) :
+          {{ product.price - product.discount_price | currency: "INR" }}
+        </span>
+        <span class="final-price-tag">
+          = {{ product.discount_price | currency: "INR" }}
+        </span></mat-card-subtitle>
+        <span class="example-spacer"></span>
+        <button mat-icon-button (click)="deleteProductFormCart(product)">
+          <mat-icon color="warn">delete_forever</mat-icon>
+        </button>
+   
+    </mat-card-header>
+  </mat-card>
+
+  <h5 *ngIf="cartProducts.length === 0" class="p-2">
+    {{ emptyCartText }}
+  </h5>
+</div>

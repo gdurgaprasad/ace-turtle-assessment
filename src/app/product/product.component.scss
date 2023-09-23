@@ -1,0 +1,59 @@
+.content {
+    padding:0.5rem
+    mat-card {
+      width: 25;
+    }
+  }
+
+  .mat-card-image,h3 {
+  margin-bottom: 0px;
+  font-weight: 400;
+}
+
+h4 {
+  font-weight: 800;
+}
+
+mat-card-content {
+  margin-bottom: 0px !important;
+}
+
+  
+.price-tag {
+    margin-left: 5px;
+    text-decoration: line-through;
+    font-weight: 500;
+  }
+  
+  .discount-tag {
+    margin-left: 5px;
+    color: green;
+  }
+  .item-type-icon {
+    margin-top: auto;
+  }
+
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  
+.product {
+    padding: 0.25rem;
+  }
+  
+  @media (min-width: 40rem) {
+    .product {
+      width: 32.33%;
+    }
+  }
+  
+  @media (min-width: 56rem) {
+    .product {
+      width: 24%;
+    }
+  }
